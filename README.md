@@ -1,4 +1,4 @@
-# mGate 
+# mgate 
 
 ```
 
@@ -11,7 +11,7 @@
 
 ```
                                
-mGate is a schema validation layer for mongodb, which provides : 
+mgate is a schema validation layer for mongodb, which provides : 
 - Metadata management rest interface 
 - Schema validation for insert and update/upsert queries 
 - Production deployment workflow on kubernetes
@@ -64,7 +64,7 @@ http://<HOST>:8080/secured/schema-registry
 ```
 
 Payload : 
-```json 
+```
 {
     "collection": "users",
     "document": $jsonDocument
@@ -73,7 +73,7 @@ Payload :
 jsonDocument = { json associated to collection data}
 
 Example : 
-```json  
+```
 {
     "collection": "users",
     "document": {
@@ -99,7 +99,7 @@ curl -X POST -d @insert-data.json http://localhost:8080/secured/schema-registry/
 
 Payload : 
 
-```json 
+```
 {
     "collection":  String,  	    
     "_id" : String,    
@@ -111,7 +111,7 @@ jsonDocument = { json data to update}
 
 Example : 
 
-```json 
+```
 {
     "collection": "users",
     “_id” : “592be28bf322cc152069e957”
@@ -128,12 +128,6 @@ Example :
 ```bash 
 curl -X POST -d @update-data.json http://localhost:8080/secured/schema-registry/db-driver/update --header "Content-Type:application/json" --header "Authorization: Bearer token"
 ```
-It is possible to pass MongoDB operations inside the document : 
-
-Example : 
-```json 
-"document" : {"array" : {"$each" : ["foo","bar"] }}
-```
 
 - UPSERT 
 
@@ -142,7 +136,7 @@ Example :
 ```
 Payload :
 
-```json 
+```
 {
     "collection":  String,
     "_id" : String,
@@ -154,7 +148,7 @@ jsonDocument = { json data to update}
 
 Example :
 
-```json 
+```
 {
     "collection": "users",
     “_id” : “592be28bf322cc152069e957”
@@ -167,7 +161,27 @@ Example :
          }
 }
 ```
+- PUSH 
+```
+```
 
+Payload : 
+ 
+```
+{
+    "collection":  String,
+    "_id" : String,
+    "document": $jsonDocument
+}
+```
+
+
+It is possible to pass MongoDB operations inside the document : 
+
+Example : 
+```
+"document" : {"array" : {"$each" : ["foo","bar"] }}
+```
 
 ## Build and deploy 
 ### Package application 
