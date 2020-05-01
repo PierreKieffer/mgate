@@ -1,0 +1,23 @@
+
+# mongodb
+
+mongo_uri: "mongodb://localhost:27017"
+
+# schema data
+# path to store json schemas
+jsonSchemaPath : "/usr/local/data-model/"
+
+#akka server
+interface : "0.0.0.0"
+port : "8080"
+portHttps : "443"
+
+# credentials
+secret : "c2NoZW1hLXJlZ2lzdHJ5LWNsaWVudC1hY2Nlc3MK"
+interfaceSecret : "cHJvZHVjdC1kYXRhLW1vZGVsLWFjY2Vzcy10b2tlbgo="
+
+# collections
+associatedCollectionSchema : '{"users" : "user","scenes":"scene"}'
+
+# databases
+associatedCollectionDatabase : '{"users":"hubstairs","scenes":"hubstairs"}'

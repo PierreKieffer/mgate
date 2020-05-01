@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/schema-registry.iml" filepath="$PROJECT_DIR$/.idea/modules/schema-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/schema-registry-build.iml" filepath="$PROJECT_DIR$/.idea/modules/schema-registry-build.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schema-registry-production
+spec:
+  replicas: 1
+  selector : 
+    matchLabels : 
+      run: schema-registry-production
+  template:
+    metadata:
+      labels:
+        run: schema-registry-production
+    spec:
+      containers:
+      - name: schema-registry-production
+        image: registry.gitlab.com/hubstairs/data-engineering/schema-registry:latest
+        resources:
+          requests:
+            cpu: "4"
+            memory: "10Gi"
+        ports : 
+        - containerPort : 8080
+        volumeMounts:
+        - name : config
+          mountPath : /usr/local/config
+      imagePullSecrets:
+      - name: gitlab-deploy-token
+      volumes:
+        - name: config
+          configMap:
+            name: schema-registry-config-production
+      

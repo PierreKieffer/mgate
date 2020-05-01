@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-production
+spec:
+  tls:
+  - secretName : hubstairs-tls
+  rules:
+  - host: schema-registry-production.hubstairs.com 
+    http:
+      paths:
+      - backend:
+          serviceName: schema-registry-production
+          servicePort: 8080
+
