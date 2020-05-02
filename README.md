@@ -57,7 +57,7 @@ Your schema name must respect the following pattern : name_version.json (user_v2
 
 Your schema must respect json standard rules (http://json-schema.org/draft-04/schema#)
 
-To easily generate json schemas, you can refer to https://github.com/sauldhernandez/autoschema 
+To easily generate json schemas, you can refer to https://github.com/coursera/autoschema 
 
 To upload a new schema or update an existing schema : 
 
