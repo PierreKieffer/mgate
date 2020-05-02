@@ -4,7 +4,7 @@ metadata:
   name: ingress-production
 spec:
   tls:
-  - secretName : hubstairs-tls
+  - secretName : mgate-tls
   rules:
   - host: host.com 
     http:
