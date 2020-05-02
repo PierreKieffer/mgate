@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: schema-registry-production
+  name: mgate
 spec:
   replicas: 1
   selector : 
     matchLabels : 
-      run: schema-registry-production
+      run: mgate
   template:
     metadata:
       labels:
-        run: schema-registry-production
+        run: mgate
     spec:
       containers:
-      - name: schema-registry-production
-        image: registry.gitlab.com/hubstairs/data-engineering/schema-registry:latest
+      - name: mgate
+        image: registry.gitlab.com//mgate:latest
         resources:
           requests:
             cpu: "4"
@@ -29,5 +29,5 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: schema-registry-config-production
+            name: mgate-config
       
