@@ -23,8 +23,8 @@ fi
 
 gcloud config set project $PROJECT
 gcloud container clusters get-credentials $CLUSTER
-kubectl delete configmap schema-registry-config-production
-kubectl create configmap schema-registry-config-production --from-file $FILE
+kubectl delete configmap mgate-config
+kubectl create configmap mgate-config --from-file $FILE
 
 
 
