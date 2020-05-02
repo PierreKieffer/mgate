@@ -4,7 +4,7 @@
 		module="mgate-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20200430172021"
+		publication="20200501204416"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

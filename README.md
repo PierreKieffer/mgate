@@ -16,8 +16,27 @@ mgate is a schema validation layer for mongodb, which provides :
 - Schema validation for insert and update/upsert queries 
 - Production deployment workflow on kubernetes
 
+
+* [Run](#run)
+	* [configuration](#configuration)
+	* [Start mGate](#start-mgate)
+* [Usage](#usage)
+	* [Upload or update a schema](#upload-or-update-a-schema)
+	* [Routes](#routes)
+* [Build and deploy](#build-and-deploy)
+	* [Package application](#package-application)
+	* [Docker](#docker)
+	* [Build and deploy on Kubernetes](#build-and-deploy-on-kubernetes)
+		* [Prerequisities](#prerequisities)
+		* [Deploying to kubernetes](#deploying-to-kubernetes)
+			* [Application](#application)
+
+
 ## Run 
 
+```bash 
+docker pull pierrekieffer/mgate
+```
 ### configuration 
 You need to edit the config.yml file with your own settings : 
 
@@ -29,7 +48,7 @@ associatedCollectionDatabase : '{"collection1":"database_name","collection2":"da
 
 ### Start mGate 
 ```bash 
-docker run --network host config.yml:/usr/local/config/config.yml mgate 
+docker run --network host -v /.../mgate/docker/config/:/usr/local/config/ pierrekieffer/mgate
 ```
 
 ## Usage 
@@ -42,7 +61,10 @@ To easily generate json schemas, you can refer to https://github.com/sauldhernan
 
 To upload a new schema or update an existing schema : 
 
-`./admin-scripts/deploy.sh schema-name version`
+
+```bash 
+curl -X POST -d @schema-name_v1.json http://localhost:8080/secured/schema-registry/admin/schema-update --header "Content-Type:application/json" --header "Authorization: Bearer token"
+```
 
 ### Routes 
 - Main
@@ -163,6 +185,7 @@ Example :
 ```
 - PUSH 
 ```
+/db-driver/push
 ```
 
 Payload : 
