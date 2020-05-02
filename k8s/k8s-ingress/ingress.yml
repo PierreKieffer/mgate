@@ -6,10 +6,10 @@ spec:
   tls:
   - secretName : hubstairs-tls
   rules:
-  - host: schema-registry-production.hubstairs.com 
+  - host: host.com 
     http:
       paths:
       - backend:
-          serviceName: schema-registry-production
+          serviceName: mgate
           servicePort: 8080
 
